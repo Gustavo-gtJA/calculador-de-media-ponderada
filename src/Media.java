@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
 public class Media {
-    String nome;
+    String nomeAluno;
 
 
     double nota1;
     double nota2;
     double nota3;
 
-    int peso1;
-    int peso2;
-    int peso3;
+    double pesoNota1;
+    double pesoNota2;
+    double pesoNota3;
 
     double mediaPonderada;
 
@@ -19,7 +19,7 @@ public class Media {
         Scanner leitor = new Scanner(System.in);
 
         System.out.println("Indique o nome do aluno ");
-        nome = leitor.nextLine();
+        nomeAluno = leitor.nextLine();
 
 
 
@@ -35,25 +35,28 @@ public class Media {
         nota3 = leitor.nextDouble();
 
         System.out.println("Indique o peso da nota 1");
-        peso1 = leitor.nextInt();
+        pesoNota1 = leitor.nextDouble();
 
         System.out.println("Indique o peso da nota 2");
-        peso2 = leitor.nextInt();
+        pesoNota2 = leitor.nextDouble();
         System.out.println("Indique o peso da nota 3");
-        peso3 = leitor.nextInt();
+        pesoNota3 = leitor.nextDouble();
 
         exibirResultado();
 
     }
     public void calcularMedia(){
-      mediaPonderada = (nota1 * peso1) + (nota2 * peso2) + (nota3 * peso3) / peso1 + peso2 + peso3;
+     double mediaPesoVersusNota =
+              (nota1 * pesoNota1) + (nota2 * pesoNota2) + (nota3 * pesoNota3);
+     double somaPesos = pesoNota1 + pesoNota2 + pesoNota3;
+      mediaPonderada= mediaPesoVersusNota / somaPesos;
 
     }
 
     public void exibirResultado(){
         calcularMedia();
         System.out.println("---------RESULTADO--------");
-        System.out.println("Nome: "+ nome);
+        System.out.println("Nome: "+ nomeAluno);
         System.out.println("Media: "+ mediaPonderada);
         System.out.println("---------FIM--------");
 
